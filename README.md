@@ -7,8 +7,6 @@
 
 ## Installation
 
-### Dependencies
-
 ## Quick Start
 
 ## Author and License
