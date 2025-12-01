@@ -1,0 +1,59 @@
+#n_features: [80, 120]
+n_features: [80]
+
+#models:
+#  mlp:
+#    class: MLPClassifier
+#    params:
+#      hidden_layer_sizes: [[64], [64, 32], [128, 64, 32]]
+#      activation: ['relu']
+#      solver: ['adam']
+#      alpha: [0.0001, 0.001]
+#      learning_rate: ['constant', 'adaptive']
+#      max_iter: [500]
+#      batch_size: ['auto']
+#      early_stopping: [True]
+#  xgb:
+#    class: XGBClassifier
+#    params:
+#      max_depth: [2, 3]
+#      learning_rate: [0.05, 0.1]
+#      n_estimators: [500, 1000]
+#  lgb:
+#    class: LGBMClassifier
+#    params:
+#      max_depth: [2, 3]
+#      learning_rate: [0.05, 0.1]
+#      n_estimators: [500, 1000]
+#  catboost:
+#    class: CatBoostClassifier
+#    params:
+#      depth: [2, 3]
+#      learning_rate: [0.05, 0.1]
+#      iterations: [500, 1000]
+#
+#  random_forest:
+#    class: RandomForestClassifier
+#    params:
+#      n_estimators: [500, 1000]
+#      max_depth: [null, 5, 10]
+#      max_features: ["sqrt", "log2", 0.8]
+#      min_samples_split: [2, 5, 10]
+#      min_samples_leaf: [1, 2, 5]
+#      class_weight: [null, "balanced"]
+
+
+models:
+  xgb:
+    class: XGBClassifier
+    params:
+      max_depth: [3]
+      learning_rate: [0.05]
+      n_estimators: [500]
+  lgb:
+    class: LGBMClassifier
+    params:
+      max_depth: [2]
+      learning_rate: [0.1]
+      n_estimators: [1000]
+
