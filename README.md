@@ -7,7 +7,20 @@
 
 ## Installation
 
+pip install -e .
+
 ## Quick Start
+
+- smart download
+
+- smart preprocess
+
+- smart train
+
+- smart eval
+
+- smart predict
+
 
 ## Author and License
 
