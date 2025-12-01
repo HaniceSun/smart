@@ -7,7 +7,22 @@
 
 ## Installation
 
-pip install -e .
+- using conda (recommended)
+
+```
+git clone git@github.com:HaniceSun/smart.git
+cd smart
+conda env create -f environment.yml
+conda activate smart
+```
+
+- using pip
+
+```
+git clone git@github.com:HaniceSun/smart.git
+cd smart
+pip install .
+```
 
 ## Quick Start
 

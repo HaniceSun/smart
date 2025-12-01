@@ -7,7 +7,7 @@ name = "smart"
 version = "1.0.0"
 description = "Short-horizon Market Risk Predicting and Trading"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 
 authors = [
   {name = "Hanice Sun", email = "hansun@stanford.edu"}
