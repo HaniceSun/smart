@@ -1,4 +1,4 @@
-# Short-horizon MArket Risk Predicting and Trading (SMART)
+# Short-horizon MArket Risk predicting and Trading (SMART)
 
 ## Overview
 

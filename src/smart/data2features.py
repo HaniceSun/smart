@@ -87,6 +87,7 @@ class Data2Features():
 
     def get_log_return_labels(self, target_symbol='SPY', horizon=5, delta=-0.01, delta_scale='linear', data_file='data.txt', labeling=True):
         data_file2 = data_file.replace(".txt", "_LogReturn.txt")
+        data_file3 = data_file.replace(".txt", f"_{target_symbol}_LogReturn.txt")
         df = pd.read_table(data_file, header=0, sep='\t')
 
         #--- remove rows with negative values
@@ -127,6 +128,13 @@ class Data2Features():
             else:
                 self.log("warning: delta shouldn't be zero")
 
+            df_target = pd.DataFrame()
+            df_target['datetime'] = df_ret['datetime']
+            df_target[f'LogReturn_{target_symbol}'] = df_ret['datetime']
+            df_target[f'LogReturn_{target_symbol}_{horizon}'] = log_ret
+            df_target[f'Return_{target_symbol}_{horizon}'] = ret
+            df_target['class'] = df_ret['class']
+            df_target.to_csv(data_file3, header=True, index=False, sep='\t')
 
             n_positive = df_ret['class'].sum()
             n_total = df_ret.shape[0]
