@@ -108,7 +108,7 @@ class Data2Features():
             else:
                 df_ret[f'LogReturn_{x}'] = np.log10(df[x]) - np.log10(df[x].shift(1))
 
-        log_ret = df_ret[f'LogReturn_{target_symbol}'].shift(1-horizon).rolling(horizon).sum()
+        log_ret = df_ret[f'LogReturn_{target_symbol}'].shift(-horizon).rolling(horizon).sum()
         ret = np.power(10, log_ret)
 
         if labeling:
