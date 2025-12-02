@@ -117,14 +117,14 @@ class Data2Features():
             if delta:
                 if delta_scale == 'log10':
                     if delta < 0:
-                        df_ret['class'] = (log_ret < 1 + delta).astype(int)
+                        df_ret['class'] = (log_ret <= delta).astype(int)
                     elif delta > 0:
-                        df_ret['class'] = (log_ret > delta).astype(int)
+                        df_ret['class'] = (log_ret >= delta).astype(int)
                 elif delta_scale == 'linear':
                     if delta < 0:
-                        df_ret['class'] = (ret < 1 + delta).astype(int)
+                        df_ret['class'] = (ret <= 1 + delta).astype(int)
                     elif delta > 0:
-                        df_ret['class'] = (ret > delta).astype(int)
+                        df_ret['class'] = (ret >= 1 + delta).astype(int)
             else:
                 self.log("warning: delta shouldn't be zero")
 
