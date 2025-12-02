@@ -31,6 +31,7 @@ def parse_args():
     parser3.add_argument('--data_file', type=str, default='data_LogReturn.txt', help="the data frame with log10 returns")
     parser3.add_argument('--test_data_start_date', type=str, default='2024-01-01', help="start date of the test dataset used to split the dataset to train and test")
     parser3.add_argument('--target_symbol', type=str, default='SPY', help="target symbol to be predicted on, must be in symbols")
+    parser3.add_argument('--daily_return_as_features', type=bool, default=True, help="include daily log return as features if True")
     parser3.add_argument('--drop_ffill_na', type=bool, default=True, help="drop the initial rows of NaN and then forward-fill the rest of the features")
 
     parser4 = subparsers.add_parser('explore-features', help="explore features about variance, correlation, and mutual information scores on the train dataset", formatter_class=formatter_class)

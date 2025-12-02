@@ -44,6 +44,16 @@ n_features: [80]
 
 
 models:
+    class: MLPClassifier
+    params:
+      hidden_layer_sizes: [[64, 32]]
+      activation: ['relu']
+      solver: ['adam']
+      alpha: [0.001]
+      learning_rate: ['constant']
+      max_iter: [500]
+      batch_size: ['auto']
+      early_stopping: [True]
   xgb:
     class: XGBClassifier
     params:
@@ -56,4 +66,9 @@ models:
       max_depth: [2]
       learning_rate: [0.1]
       n_estimators: [1000]
-
+  catboost:
+    class: CatBoostClassifier
+    params:
+      depth: [3]
+      learning_rate: [0.05]
+      iterations: [1000]

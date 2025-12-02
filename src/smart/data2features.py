@@ -146,7 +146,7 @@ class Data2Features():
         df_ret.to_csv(data_file2, header=True, index=False, sep='\t')
 
 
-    def make_features(self, data_file='data_LogReturn.txt', drop_ffill_na=True, test_data_start_date='2024-01-01', target_symbol='SPY', split=True):
+    def make_features(self, data_file='data_LogReturn.txt', drop_ffill_na=True, test_data_start_date='2024-01-01', target_symbol='SPY', daily_return_as_features=True, split=True):
         data_file2 = data_file.replace('.txt', '_Features.txt')
 
         self.df = pd.read_table(data_file, header=0, sep='\t')
@@ -155,6 +155,10 @@ class Data2Features():
         self.features = {}
         self.features['datetime'] = self.df['datetime']
         self.features['class'] = self.df['class']
+        if daily_return_as_features:
+            for col in self.df.columns:
+                if col.startswith('LogReturn'):
+                    self.features[col] = self.df[col]
 
         self.score_momentum_volatility()
         self.score_momentum_skewness()
