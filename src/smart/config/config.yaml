@@ -44,6 +44,7 @@ n_features: [80]
 
 
 models:
+  mlp:
     class: MLPClassifier
     params:
       hidden_layer_sizes: [[64, 32]]
