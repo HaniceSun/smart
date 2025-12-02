@@ -47,7 +47,7 @@ models:
   mlp:
     class: MLPClassifier
     params:
-      hidden_layer_sizes: [[64, 32]]
+      hidden_layer_sizes: [[32, 16, 8]]
       activation: ['relu']
       solver: ['adam']
       alpha: [0.001]
