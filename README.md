@@ -16,6 +16,25 @@ conda env create -f environment.yml
 conda activate smart
 ```
 
+- using docker
+
+```
+git clone git@github.com:HaniceSun/smart.git
+cd smart
+docker build -t smart:latest .
+docker run -v $(pwd):/app -it smart:latest smart -h
+```
+
+- using apptainer/singularity
+
+```
+git clone git@github.com:HaniceSun/smart.git
+cd smart
+apptainer build --dockerfile Dockerfile smart.sif
+```
+
+
+
 - using pip
 
 ```
