@@ -14,7 +14,6 @@ git clone git@github.com:HaniceSun/smart.git
 cd smart
 conda env create -f environment.yml
 conda activate smart
-smart
 ```
 
 - using docker
@@ -32,7 +31,6 @@ alias smart="docker run -v $(pwd):/app -it smart:latest smart"
 git clone git@github.com:HaniceSun/smart.git
 cd smart
 pip install .
-smart
 ```
 
 ## Quick Start
