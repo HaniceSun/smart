@@ -21,8 +21,8 @@ conda activate smart
 ```
 git clone git@github.com:HaniceSun/smart.git
 cd smart
-docker build -t smart:latest .
-alias smart="docker run -v $(pwd):/app -it smart:latest smart"
+sudo docker build -t smart:latest .
+alias smart="sudo docker run -v $(pwd):/app -it smart:latest smart" 
 ```
 
 - using pip
