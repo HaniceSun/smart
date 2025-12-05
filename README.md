@@ -14,6 +14,7 @@ git clone git@github.com:HaniceSun/smart.git
 cd smart
 conda env create -f environment.yml
 conda activate smart
+smart
 ```
 
 - using docker
@@ -22,18 +23,8 @@ conda activate smart
 git clone git@github.com:HaniceSun/smart.git
 cd smart
 docker build -t smart:latest .
-docker run -v $(pwd):/app -it smart:latest smart -h
+alias smart="docker run -v $(pwd):/app -it smart:latest smart"
 ```
-
-- using apptainer/singularity
-
-```
-git clone git@github.com:HaniceSun/smart.git
-cd smart
-apptainer build --dockerfile Dockerfile smart.sif
-```
-
-
 
 - using pip
 
@@ -41,6 +32,7 @@ apptainer build --dockerfile Dockerfile smart.sif
 git clone git@github.com:HaniceSun/smart.git
 cd smart
 pip install .
+smart
 ```
 
 ## Quick Start
