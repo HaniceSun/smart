@@ -40,7 +40,7 @@ class SmartML():
         self.time_format = '%Y-%m-%d %H:%M:%S'
 
 
-    def train_val(self, config_file=None, data_file='data_LogReturn_Features_train.txt', metrics_file='metrics.txt', n_splits=10, test_size=250, time_series=True, random_state=42):
+    def train_val(self, study='ranjan2025', config_file=None, data_file='data_LogReturn_Features_train.txt', metrics_file='metrics.txt', n_splits=10, test_size=250, time_series=True, random_state=42):
         self.load_config(config_file)
         self.df_train = pd.read_table(data_file, header=0, sep='\t')
         self.feature_cols = [x for x in self.df_train.columns if x not in ['datetime', 'class']]
@@ -89,7 +89,7 @@ class SmartML():
                             extra = ','.join([str(x) for x in extra])
                         self.log_metrics([model_name, n_features, str(params), idx_splits] + [roc_auc, 'val', extra], log_file=metrics_file)
 
-    def fit_model(self, model_name, model_class, params, X_train, y_train, X_val=None, y_val=None, random_state=42):
+    def fit_model(self, study='ranjan2025', model_name, model_class, params, X_train, y_train, X_val=None, y_val=None, random_state=42):
         if model_name == 'mlp':
             model = model_class(**params, random_state=random_state, verbose=0)
             model.fit(X_train, y_train)
@@ -119,7 +119,7 @@ class SmartML():
             model.fit(X_train, y_train)
         return model
 
-    def eval_model(self, model, X, y, model_name, dataset, log_file):
+    def eval_model(self, study='ranjan2025', model, X, y, model_name, dataset, log_file):
         y_pred = model.predict(X)
         y_pred_prob = model.predict_proba(X)
         if self.multi_class:
@@ -131,7 +131,7 @@ class SmartML():
             extra = ','.join([str(x) for x in extra])
         self.log_metrics([model_name] + [roc_auc, dataset, extra], log_file=log_file)
 
-    def get_best_model_params(self, metrics_file='metrics.txt', score='roc_auc', dataset='val'):
+    def get_best_model_params(self, study='ranjan2025', metrics_file='metrics.txt', score='roc_auc', dataset='val'):
         self.metrics = pd.read_table(metrics_file, header=0, sep='\t')
 
         if self.metrics.shape[0]:
@@ -165,7 +165,7 @@ class SmartML():
             self.log('best model params:')
             print(df3)
 
-    def final_fit_eval_train_test(self, data_file='data_LogReturn_Features.txt', config_file='config.yaml', metrics_file='metrics.txt', save_model_file='model.pkl', score='roc_auc', ensemble=True, voting='soft', calibration=False, calibration_cv=5, random_state=42):
+    def final_fit_eval_train_test(self, study='ranjan2025', data_file='data_LogReturn_Features.txt', config_file='config.yaml', metrics_file='metrics.txt', save_model_file='model.pkl', score='roc_auc', ensemble=True, voting='soft', calibration=False, calibration_cv=5, random_state=42):
         self.load_config(config_file)
         self.df_train = pd.read_table(data_file.replace('.txt', '_train.txt'), header=0, sep='\t')
         self.df_test = pd.read_table(data_file.replace('.txt', '_test.txt'), header=0, sep='\t')
@@ -223,7 +223,7 @@ class SmartML():
 
         joblib.dump(to_save, save_model_file)
 
-    def predict(self, model='ensemble', data_file=None, output_file='predicted.txt', data_folder='to_predict', load_model_file='model.pkl',
+    def predict(self, study='ranjan2025', model='ensemble', data_file=None, output_file='predicted.txt', data_folder='to_predict', load_model_file='model.pkl',
                 symbols='SPY,QQQ,IWM,TLT,^VIX,GLD,CL=F,DX-Y.NYB,EURUSD=X,JPYUSD=X,^TNX,^IRX', target_symbol='SPY',
                 start_date=None, end_date=None, market='stock', timeframe='day', interval='1d', period='max', 
                 auto_adjust=True, neg_ffill=True, drop_ffill_na=True):
