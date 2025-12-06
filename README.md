@@ -46,7 +46,7 @@ alias smart="sudo docker run -v $(pwd):/app -it smart:latest smart"
 
 ## Growing list of implemented studies
 
-StudyIDs shown in brackets is needed for command-line usage (e.g. smart --study ranjan2025)
+The StudyID shown in brackets is needed for command-line usage (e.g. smart download --study ranjan2025)
 
 - [Causal and Predictive Modeling of Short-Horizon Market Risk and Systematic Alpha Generation Using Hybrid Machine Learning Ensembles](https://arxiv.org/abs/2510.22348), Aryan Ranjan, 2025 (ranjan2025)
 
