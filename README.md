@@ -2,7 +2,7 @@
 
 ## Overview
 
-**SMART** is a Python package for reproducing and evaluating methods shared from papers and posts, with the recognition that sometimes reported superior results may stem from overfitting or data leakage. Once a method’s performance is validated, the strategy is incorporated into my live trading systems using Backtrader with Alpaca and IBKR brokers.
+**SMART** is a Python package for reproducing, evaluating, and improving methods shared from papers and posts, with the recognition that sometimes reported superior results may stem from overfitting or data leakage. Once a method’s performance is validated, the strategy is incorporated into my live trading systems using Backtrader with Alpaca and IBKR brokers.
 
 ## Installation
 
