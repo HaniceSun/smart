@@ -20,7 +20,7 @@ class Data2Features():
         self.time_zone = ZoneInfo("America/New_York")
         self.time_format = '%Y-%m-%d %H:%M:%S'
 
-    def download_data(self, study='ranjan2025', symbols='SPY,QQQ,IWM,TLT,^VIX,GLD,CL=F,DX-Y.NYB,EURUSD=X,JPYUSD=X,^TNX,^IRX', data_folder='data', data_file='data.txt', start_date=None, end_date=None, interval='1d', market='stock', timeframe='day', auto_adjust=True, neg_ffill=True, period='max', sleep_time=3, retries=5):
+    def download_data(self, symbols='SPY,QQQ,IWM,TLT,^VIX,GLD,CL=F,DX-Y.NYB,EURUSD=X,JPYUSD=X,^TNX,^IRX', data_folder='data', data_file='data.txt', start_date=None, end_date=None, interval='1d', market='stock', timeframe='day', auto_adjust=True, neg_ffill=True, period='max', sleep_time=3, retries=5):
 
         if not os.path.exists(data_folder):
             os.mkdir(data_folder)
@@ -146,7 +146,7 @@ class Data2Features():
         df_ret.to_csv(data_file2, header=True, index=False, sep='\t')
 
 
-    def make_features(self, study='ranjan2025', data_file='data_LogReturn.txt', drop_ffill_na=True, test_data_start_date='2024-01-01', target_symbol='SPY', daily_return_as_features=True, split=True):
+    def make_features(self, data_file='data_LogReturn.txt', drop_ffill_na=True, test_data_start_date='2024-01-01', target_symbol='SPY', daily_return_as_features=True, split=True):
         data_file2 = data_file.replace('.txt', '_Features.txt')
 
         self.df = pd.read_table(data_file, header=0, sep='\t')
@@ -195,7 +195,7 @@ class Data2Features():
         self.df_train.to_csv(ouF_train, header=True, index=False, sep='\t')
         self.df_test.to_csv(ouF_test, header=True, index=False, sep='\t')
 
-    def explore_features(self, study='ranjan2025', variance_threshold=1e-4, correlation_threshold=0.95, show_top_n=20, fontsize=3, data_file='data_LogReturn_Features_train.txt'):
+    def explore_features(self, variance_threshold=1e-4, correlation_threshold=0.95, show_top_n=20, fontsize=3, data_file='data_LogReturn_Features_train.txt'):
         '''
         Filter features with low variance, high correlation, low mutual information (MI) scores,
         and then do standardization within each training fold during cross-validation to avoid data leakage.
