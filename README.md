@@ -44,7 +44,7 @@ alias smart="sudo docker run -v $(pwd):/app -it smart:latest smart"
 
 - smart predict
 
-## Growing list of implementing/implemented studies
+## Implementing/implemented studies
 
 The StudyID shown in brackets is needed for command-line usage (e.g. smart download --study ranjan2025)
 
