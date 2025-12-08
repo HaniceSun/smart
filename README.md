@@ -46,11 +46,11 @@ alias smart="sudo docker run -v $(pwd):/app -it smart:latest smart"
 
 ## Implementing/implemented studies
 
-The StudyID shown in brackets is needed for command-line usage (e.g. smart download --study ranjan2025)
+The StudyID shown in brackets is needed for command-line usage (e.g. smart download --study Ranjan2025)
 
-- [Causal and Predictive Modeling of Short-Horizon Market Risk and Systematic Alpha Generation Using Hybrid Machine Learning Ensembles](https://arxiv.org/abs/2510.22348), Aryan Ranjan, 2025 (ranjan2025)
+- [Causal and Predictive Modeling of Short-Horizon Market Risk and Systematic Alpha Generation Using Hybrid Machine Learning Ensembles](https://arxiv.org/abs/2510.22348), Aryan Ranjan, 2025 (Ranjan2025)
 
-- [Statistical Arbitrage: Can we get over 20% of annual returns uncorrelated with market risk?](https://www.quantitativo.com/p/statistical-arbitrage?r=2cqd5p), Quantitativo, 2024 (quantitativo2024)
+- [Volume Shocks and Overnight Returns](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5156605), Álvaro Cartea, 2025 (Cartea2025)
 
 
 ## Author and License
